@@ -12,6 +12,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
@@ -34,6 +35,7 @@ public class TimeEntryApiTest {
 
     @Test
     public void testCreate() throws Exception {
+
         ResponseEntity<String> createResponse = restTemplate.postForEntity("/time-entries", timeEntry, String.class);
 
 
