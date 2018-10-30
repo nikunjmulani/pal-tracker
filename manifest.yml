@@ -4,4 +4,4 @@ applications:
   routes:
   - route: pal-tracker-pietro-sampsonite-v1.apps.pikes.pal.pivotal.io
   env:
-    WELCOME_MESSAGE: Hello from the preview environment
+    WELCOME_MESSAGE: Hello from the review environment
