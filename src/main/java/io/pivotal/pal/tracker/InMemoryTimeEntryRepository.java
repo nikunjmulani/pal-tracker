@@ -37,7 +37,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     @Override
     public List<TimeEntry> list() {
         if (Objects.isNull(this.data)) {
-            return null;
+            return new ArrayList<>();
         }
         
         return this.data.values().stream().collect(Collectors.toList()) ;
