@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface TimeEntryRepository {
     TimeEntry create(TimeEntry timeEntry);
-    TimeEntry find(long timeEntryId);
+    TimeEntry find(Long timeEntryId);
     List<TimeEntry> list();
-    TimeEntry update(long id, TimeEntry timeEntry);
-    void delete(long id);
+    TimeEntry update(Long id, TimeEntry timeEntry);
+    void delete(Long id);
 }

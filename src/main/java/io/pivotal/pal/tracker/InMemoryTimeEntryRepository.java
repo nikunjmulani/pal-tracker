@@ -18,14 +18,14 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         }
 
         long timeEntryId = (long) this.data.size() + 1;
-        timeEntry.setTimeEntryId(timeEntryId);
+        timeEntry.setId(timeEntryId);
         this.data.put(timeEntryId, timeEntry);
 
         return timeEntry;
     }
 
     @Override
-    public TimeEntry find(long timeEntryId) {
+    public TimeEntry find(Long timeEntryId) {
 
         if (Objects.isNull(this.data) || !this.data.containsKey(timeEntryId)) {
             return null;
@@ -44,18 +44,18 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry update(long id, TimeEntry timeEntry) {
+    public TimeEntry update(Long id, TimeEntry timeEntry) {
         if (Objects.isNull(this.data) || !this.data.containsKey(id)) {
             return null;
         }
 
-        timeEntry.setTimeEntryId(id);
+        timeEntry.setId(id);
         this.data.put(id, timeEntry);
         return timeEntry;
     }
 
     @Override
-    public void delete(long id)  {
+    public void delete(Long id)  {
         if (Objects.isNull(this.data) || !this.data.containsKey(id)) {
             return;
         }

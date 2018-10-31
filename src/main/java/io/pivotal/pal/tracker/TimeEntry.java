@@ -1,32 +1,18 @@
 package io.pivotal.pal.tracker;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 
 
 public class TimeEntry {
-
-
-    private long timeEntryId;
-
+    private long id;
     private long projectId;
     private long userId;
-
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-
-
-
-    @JsonProperty(value = "date")
-    private LocalDate parse;
-
-   @JsonProperty(value = "hours")
-    private int i;
-
+    private LocalDate date;
+    private int hours;
     public TimeEntry() {
 
     }
@@ -36,45 +22,43 @@ public class TimeEntry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TimeEntry timeEntry = (TimeEntry) o;
-        return timeEntryId == timeEntry.timeEntryId &&
+        return getId() == timeEntry.getId() &&
                 getProjectId() == timeEntry.getProjectId() &&
                 getUserId() == timeEntry.getUserId() &&
-                getI() == timeEntry.getI() &&
-                Objects.equals(getParse(), timeEntry.getParse());
+                getHours() == timeEntry.getHours() &&
+                Objects.equals(getDate(), timeEntry.getDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(timeEntryId, getProjectId(), getUserId(), getParse(), getI());
+        return Objects.hash(id, getProjectId(), getUserId(), getDate(), getHours());
     }
 
-    public TimeEntry(long timeEntryId, long projectId, long userId, LocalDate parse, int i) {
-        this.timeEntryId = timeEntryId;
+    public TimeEntry(long id, long projectId, long userId, LocalDate date, int hours) {
+        this.id = id;
         this.projectId = projectId;
         this.userId = userId;
-        this.parse = parse;
-        this.i = i;
+        this.date = date;
+        this.hours = hours;
 
 
     }
 
-    public TimeEntry(long projectId, long userId, LocalDate parse, int id) {
+    public TimeEntry(long projectId, long userId, LocalDate date, int id) {
         //this.timeEntryId =  (long) Math.random();
         this.projectId = projectId;
         this.userId = userId;
-        this.parse = parse;
-        this.i = id;
+        this.date = date;
+        this.hours = id;
     }
 
     public long getId() {
-        return timeEntryId;
+        return id;
     }
 
-
-    public void setId(long timeEntryId) {
-        this.timeEntryId = timeEntryId;
+    public void setId(long id) {
+        this.id = id;
     }
-
 
     public long getProjectId() {
         return projectId;
@@ -92,27 +76,21 @@ public class TimeEntry {
         this.userId = userId;
     }
 
-    public LocalDate getParse() {
-        return parse;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setParse(LocalDate parse) {
-        this.parse = parse;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public int getI() {
-        return i;
+    public int getHours() {
+        return hours;
     }
 
-    public void setI(int i) {
-        this.i = i;
-    }
-
-    public long getTimeEntryId() {
-        return timeEntryId;
-    }
-
-    public void setTimeEntryId(long timeEntryId) {
-        this.timeEntryId = timeEntryId;
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 }
+
+
