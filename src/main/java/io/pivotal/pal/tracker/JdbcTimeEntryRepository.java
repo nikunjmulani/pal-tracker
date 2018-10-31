@@ -4,6 +4,7 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterUtils;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
@@ -28,6 +29,8 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
     @Override
     public TimeEntry create(TimeEntry timeEntry) {
         KeyHolder generatedKeyHolder = new GeneratedKeyHolder();
+
+
 
         jdbcTemplate.update(connection -> {
             PreparedStatement statement = connection.prepareStatement(
