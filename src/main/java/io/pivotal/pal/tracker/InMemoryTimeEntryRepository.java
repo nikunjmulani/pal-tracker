@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 @Repository
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     private Map<Long, TimeEntry> data;
